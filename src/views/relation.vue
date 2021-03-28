@@ -42,24 +42,30 @@
 <script>
 import { tableOptions } from './relation#config'
 import { getOwnership, getGameList } from '../api/user'
+import { getAuthToken, removeAuthToken } from '../constants/cookie'
+
 export default {
   data () {
     return {
       data: [],
-      getlistLoading: false
+      getlistLoading: false,
+      user_info: {}
     }
   },
   created () {
     this.getOwnershipAndGameList()
   },
   computed: {
-    tableOptions,
-    user_info () {
-      return this.$store.state.user_info
-    }
+    tableOptions
   },
   methods: {
     getOwnershipAndGameList () {
+      const token = getAuthToken().split('&')
+      this.user_info = {
+        userAccountId: token[0],
+        emailAddress: token[1],
+        isAdmin: Number(token[2])
+      }
       getGameList().then(gameRes => {
         this.getlistLoading = true
         // 管理员
@@ -86,7 +92,7 @@ export default {
       })
     },
     onLogout () {
-      this.$store.commit('SET_USER_INFO', {})
+      removeAuthToken()
       this.$router.push({
         name: 'login'
       })

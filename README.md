@@ -7,7 +7,7 @@ You can access through this URL：[http://ubi.zhantie.art/index.html](http://ubi
 
 ## Frontend technology stack
 ```
-vue + vue-router + vux + axios + less + ant-design
+vue + vue-router + axios + less + ant-design
 ```
 
 ## Project setup

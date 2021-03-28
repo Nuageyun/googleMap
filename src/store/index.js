@@ -4,13 +4,9 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-    user_info: {}
-  },
+  state: {},
   mutations: {
-    SET_USER_INFO (state, userInfo) {
-      state.user_info = userInfo
-    }
+
   },
   actions: {
   },

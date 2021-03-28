@@ -52,6 +52,7 @@
 <script>
 import { decorators } from './login#config'
 import { getUsers } from '../api/user.js'
+import { setAuthToken } from '../constants/cookie'
 export default {
   components: {},
   data () {
@@ -80,7 +81,7 @@ export default {
           if (flag) {
             // 判断账号密码准确
             if (auth.password === values.password) {
-              this.$store.commit('SET_USER_INFO', auth)
+              setAuthToken(auth.userAccountId + '&' + auth.emailAddress + '&' + (auth.isAdmin ? 1 : 0))
               this.$router.push({
                 name: 'relation'
               })
