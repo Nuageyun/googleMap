@@ -1,13 +1,8 @@
-# game_login
-
-## Description
-A website where users can log in to view their account information and their games.
-
-You can access through this URL：[http://ubi.zhantie.art/index.html](http://ubi.zhantie.art/index.html)
+# gooleMap
 
 ## Frontend technology stack
 ```
-vue + vue-router + axios + less + ant-design
+vue + vue-router + less + ant-design
 ```
 
 ## Project setup
